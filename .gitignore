@@ -1,4 +1,5 @@
 .claude/
 .venv/
+.mcp.json
 __pycache__/
 *.pyc
