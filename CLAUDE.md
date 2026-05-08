@@ -20,9 +20,33 @@
 ```
 datamonitor/
 ├── CLAUDE.md
-├── main.py              # 진입점
+├── main.py              # 진입점: 메인 루프 + render()
+├── config.py            # 경로 설정 + sys.path 주입 (json_store 임포트 전 필수)
+├── display.py           # 콘솔 출력 유틸 (clear, section, table, now)
+├── views/
+│   ├── orders.py        # OrderView: get_all / get_by_status / get_summary
+│   └── inventory.py     # InventoryView: get_all
+├── data/
+│   ├── orders.json      # 주문 데이터 (key: 주문ID)
+│   └── inventory.json   # 재고 데이터 (key: 시료ID)
 ├── pyproject.toml
 └── uv.lock
+```
+
+## 데이터 스키마
+
+**orders.json**
+```json
+{
+  "ORD-001": { "status": "RESERVED", "sample": "SMP-A", "quantity": 5, "created_at": "2026-05-07" }
+}
+```
+
+**inventory.json**
+```json
+{
+  "SMP-A": { "quantity": 85 }
+}
 ```
 
 ## 아키텍처 원칙
