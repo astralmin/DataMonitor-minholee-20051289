@@ -1,6 +1,8 @@
 import time
 import sys
 
+sys.stdout.reconfigure(encoding="utf-8")
+
 import config  # json_store 임포트 전 sys.path 주입 필수
 from views.orders import OrderView, ORDER_STATUSES
 from views.inventory import InventoryView
